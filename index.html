@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0a0d14" />
+  <meta name="description" content="IT-портфолио Стенина Вячеслава Александровича: навыки, образование и учебный проект." />
+  <title>Стенин Вячеслав Александрович — IT-портфолио</title>
+  <style>
+    :root {
+      --bg: #090c12;
+      --panel: #101620;
+      --panel-soft: #131c29;
+      --line: rgba(172, 192, 219, .15);
+      --text: #f1f5fb;
+      --muted: #a5b1c2;
+      --accent: #91f2d1;
+      --accent-2: #95b8ff;
+      --radius: 22px;
+      --max: 1120px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 92px; }
+    body {
+      margin: 0;
+      background:
+        radial-gradient(ellipse at 13% 6%, rgba(52, 120, 117, .16), transparent 31rem),
+        radial-gradient(ellipse at 92% 25%, rgba(65, 86, 155, .17), transparent 32rem),
+        var(--bg);
+      color: var(--text);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; text-decoration: none; }
+    a:focus-visible, summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 5px; }
+    .container { width: min(var(--max), calc(100% - 40px)); margin: 0 auto; }
+    .topbar {
+      position: sticky; top: 0; z-index: 10;
+      border-bottom: 1px solid rgba(172, 192, 219, .11);
+      background: rgba(9, 12, 18, .78); backdrop-filter: blur(18px);
+    }
+    .nav { min-height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .brand { display: inline-flex; align-items: center; gap: 11px; font-size: .92rem; font-weight: 750; letter-spacing: -.025em; white-space: nowrap; }
+    .brand-mark { width: 34px; height: 34px; display: grid; place-items: center; border-radius: 11px; color: #071310; background: var(--accent); font-size: .78rem; font-weight: 900; letter-spacing: -.06em; }
+    .nav-links { display: flex; align-items: center; gap: 26px; color: var(--muted); font-size: .86rem; }
+    .nav-links a { transition: color .18s ease; }
+    .nav-links a:hover { color: var(--accent); }
+    .nav-cta { border: 1px solid var(--line); border-radius: 999px; padding: 9px 14px; color: var(--text) !important; }
+    .hero { padding: 88px 0 83px; }
+    .hero-grid { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(270px, .75fr); align-items: center; gap: 58px; }
+    .eyebrow { display: inline-flex; align-items: center; gap: 10px; color: var(--accent); font-size: .76rem; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; }
+    .eyebrow::before { content: ""; width: 24px; height: 1px; background: currentColor; }
+    h1 { max-width: 760px; margin: 23px 0 19px; font-size: clamp(2.8rem, 6.8vw, 5.4rem); line-height: .99; letter-spacing: -.075em; font-weight: 760; }
+    h1 .surname { color: var(--accent); }
+    .hero-role { margin: 0 0 15px; color: #d3deeb; font-size: clamp(1rem, 1.7vw, 1.19rem); font-weight: 560; }
+    .hero-description { max-width: 620px; margin: 0; color: var(--muted); font-size: 1.02rem; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
+    .button { display: inline-flex; justify-content: center; align-items: center; gap: 10px; min-height: 47px; padding: 12px 17px; border-radius: 12px; border: 1px solid var(--line); font-size: .91rem; font-weight: 720; transition: transform .18s ease, border-color .18s ease, background .18s ease; }
+    .button:hover { transform: translateY(-2px); border-color: rgba(145, 242, 209, .52); }
+    .button-primary { background: var(--accent); border-color: var(--accent); color: #071310; }
+    .button-primary:hover { background: #b5ffe9; }
+    .button-secondary { background: rgba(255,255,255,.025); color: var(--text); }
+    .profile-card { position: relative; overflow: hidden; padding: 27px; border: 1px solid var(--line); border-radius: 28px; background: linear-gradient(145deg, rgba(22, 33, 48, .96), rgba(12, 17, 26, .94)); box-shadow: 0 28px 90px rgba(0,0,0,.22); }
+    .profile-card::before { content: ""; position: absolute; width: 200px; height: 200px; right: -85px; top: -100px; border-radius: 50%; background: rgba(145,242,209,.11); filter: blur(7px); pointer-events: none; }
+    .profile-top { display: flex; justify-content: space-between; align-items: center; gap: 18px; position: relative; }
+    .avatar { width: 78px; height: 78px; display: grid; place-items: center; border-radius: 24px; background: linear-gradient(145deg, #a8ffe3, #7ca3f8); color: #0b1820; font-size: 1.6rem; font-weight: 900; letter-spacing: -.08em; }
+    .profile-chip { display: inline-flex; align-items: center; gap: 7px; padding: 7px 10px; border: 1px solid rgba(145,242,209,.19); border-radius: 999px; color: #b1f9e4; background: rgba(145,242,209,.06); font-size: .7rem; font-weight: 750; white-space: nowrap; }
+    .profile-chip::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
+    .profile-name { margin: 25px 0 4px; font-size: 1.33rem; font-weight: 760; letter-spacing: -.035em; }
+    .profile-subtitle { color: var(--muted); font-size: .91rem; }
+    .profile-divider { height: 1px; background: var(--line); margin: 22px 0; }
+    .micro-label { display: block; margin-bottom: 10px; color: #77879d; font-size: .69rem; letter-spacing: .13em; font-weight: 800; text-transform: uppercase; }
+    .tag-list { display: flex; flex-wrap: wrap; gap: 8px; }
+    .tag { display: inline-flex; padding: 7px 10px; border: 1px solid rgba(172,192,219,.13); border-radius: 9px; background: rgba(255,255,255,.035); color: #d7e2ef; font-size: .78rem; }
+    section { padding: 78px 0; border-top: 1px solid rgba(172,192,219,.1); }
+    .section-head { display: flex; justify-content: space-between; align-items: end; gap: 28px; margin-bottom: 32px; }
+    .section-kicker { display: block; margin-bottom: 8px; color: var(--accent); font-size: .73rem; font-weight: 800; letter-spacing: .15em; text-transform: uppercase; }
+    h2 { margin: 0; font-size: clamp(2rem, 4vw, 3.1rem); line-height: 1.07; letter-spacing: -.06em; }
+    .section-intro { max-width: 455px; margin: 0; color: var(--muted); font-size: .95rem; }
+    .skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+    .skill-card { min-height: 164px; padding: 23px; border: 1px solid var(--line); border-radius: var(--radius); background: rgba(16,22,32,.73); transition: transform .2s ease, border-color .2s ease, background .2s ease; }
+    .skill-card:hover { transform: translateY(-3px); border-color: rgba(145,242,209,.34); background: rgba(19,28,41,.96); }
+    .skill-index { color: var(--accent); font-size: .72rem; font-weight: 800; letter-spacing: .12em; }
+    .skill-card h3 { margin: 18px 0 8px; font-size: 1.08rem; letter-spacing: -.025em; }
+    .skill-card p { margin: 0; color: var(--muted); font-size: .88rem; }
+    .project-wrap { display: grid; grid-template-columns: minmax(0, 1fr) minmax(255px, .68fr); gap: 17px; align-items: stretch; }
+    .project-main { position: relative; overflow: hidden; padding: clamp(24px, 4vw, 38px); border: 1px solid rgba(145,242,209,.22); border-radius: 26px; background: linear-gradient(145deg, rgba(17, 40, 43, .76), rgba(16,22,32,.94) 55%); }
+    .project-main::after { content: "</>"; position: absolute; right: 16px; top: 20px; color: rgba(145,242,209,.075); font-size: clamp(4rem, 10vw, 8rem); font-weight: 900; letter-spacing: -.1em; line-height: 1; pointer-events: none; }
+    .project-label { position: relative; display: inline-flex; padding: 6px 9px; border-radius: 8px; color: #aef6e3; background: rgba(145,242,209,.08); font-size: .72rem; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; }
+    .project-main h3 { position: relative; max-width: 550px; margin: 24px 0 13px; font-size: clamp(1.6rem, 3vw, 2.4rem); line-height: 1.12; letter-spacing: -.055em; }
+    .project-main > p { position: relative; max-width: 620px; margin: 0; color: var(--muted); }
+    .project-facts { position: relative; display: grid; grid-template-columns: repeat(2, 1fr); gap: 13px; margin-top: 28px; }
+    .fact { padding: 15px; border-radius: 13px; border: 1px solid rgba(172,192,219,.12); background: rgba(4,9,14,.25); }
+    .fact strong { display: block; margin-bottom: 5px; font-size: .79rem; color: #dce8f4; }
+    .fact span { display: block; color: #95a4b7; font-size: .82rem; }
+    .project-side { display: flex; flex-direction: column; gap: 14px; }
+    .side-card { height: 100%; padding: 24px; border: 1px solid var(--line); border-radius: var(--radius); background: rgba(16,22,32,.73); }
+    .side-card h3 { margin: 0 0 13px; font-size: 1.08rem; }
+    .side-card p { margin: 0; color: var(--muted); font-size: .91rem; }
+    details { margin-top: 20px; border-top: 1px solid var(--line); padding-top: 15px; }
+    summary { display: flex; align-items: center; justify-content: space-between; gap: 16px; cursor: pointer; color: #dce8f4; font-size: .88rem; font-weight: 730; list-style: none; }
+    summary::-webkit-details-marker { display: none; }
+    summary::after { content: "+"; color: var(--accent); font-size: 1.3rem; font-weight: 400; }
+    details[open] summary::after { content: "−"; }
+    .details-content { padding-top: 13px; color: var(--muted); font-size: .87rem; }
+    .details-content p { margin: 0 0 10px; }
+    .details-content p:last-child { margin-bottom: 0; }
+    .education-grid { display: grid; grid-template-columns: 92px 1fr; gap: 22px; padding: 28px; border: 1px solid var(--line); border-radius: var(--radius); background: rgba(16,22,32,.73); }
+    .edu-mark { width: 70px; height: 70px; display: grid; place-items: center; border-radius: 21px; background: rgba(149,184,255,.1); color: var(--accent-2); font-size: 1.25rem; font-weight: 850; }
+    .edu-year { margin-bottom: 6px; color: var(--accent-2); font-size: .76rem; letter-spacing: .1em; font-weight: 800; text-transform: uppercase; }
+    .education-grid h3 { margin: 0 0 7px; font-size: 1.2rem; letter-spacing: -.03em; }
+    .education-grid p { max-width: 670px; margin: 0; color: var(--muted); }
+    .about-band { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+    .about-box { padding: 24px; border: 1px solid var(--line); border-radius: var(--radius); background: rgba(16,22,32,.6); }
+    .about-box h3 { margin: 0 0 9px; font-size: 1.02rem; }
+    .about-box p { margin: 0; color: var(--muted); font-size: .9rem; }
+    .contact-panel { display: flex; align-items: center; justify-content: space-between; gap: 28px; padding: clamp(25px, 5vw, 42px); border: 1px solid rgba(145,242,209,.22); border-radius: 26px; background: linear-gradient(110deg, rgba(21,51,48,.54), rgba(16,22,32,.85)); }
+    .contact-panel h2 { max-width: 570px; font-size: clamp(1.8rem, 3.7vw, 2.8rem); }
+    .contact-panel p { max-width: 500px; margin: 12px 0 0; color: var(--muted); }
+    footer { padding: 27px 0 35px; border-top: 1px solid rgba(172,192,219,.1); color: #7f8da1; font-size: .8rem; }
+    .footer-row { display: flex; justify-content: space-between; gap: 15px; }
+    .back-top { color: var(--accent); }
+    @media (max-width: 820px) {
+      .hero-grid { grid-template-columns: 1fr; gap: 34px; }
+      .profile-card { max-width: 550px; }
+      .hero { padding-top: 66px; }
+      .skills-grid { grid-template-columns: repeat(2, 1fr); }
+      .project-wrap { grid-template-columns: 1fr; }
+      .section-head { align-items: start; flex-direction: column; }
+      .contact-panel { align-items: start; flex-direction: column; }
+    }
+    @media (max-width: 580px) {
+      .container { width: min(var(--max), calc(100% - 28px)); }
+      .nav { min-height: 66px; }
+      .nav-links { gap: 13px; font-size: .78rem; }
+      .nav-links a:nth-child(1), .nav-links a:nth-child(2) { display: none; }
+      .brand { font-size: .82rem; }
+      .brand-mark { width: 31px; height: 31px; }
+      .hero { padding: 55px 0 58px; }
+      h1 { font-size: clamp(2.7rem, 13vw, 4.1rem); }
+      section { padding: 58px 0; }
+      .skills-grid { grid-template-columns: 1fr; }
+      .skill-card { min-height: 0; }
+      .project-facts { grid-template-columns: 1fr; }
+      .education-grid { grid-template-columns: 1fr; padding: 22px; }
+      .about-band { grid-template-columns: 1fr; }
+      .profile-card { padding: 22px; }
+      .footer-row { flex-direction: column; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar" id="top">
+    <div class="container nav">
+      <a class="brand" href="#top" aria-label="На главную">
+        <span class="brand-mark">ВС</span>
+        <span>IT-портфолио</span>
+      </a>
+      <nav class="nav-links" aria-label="Основная навигация">
+        <a href="#skills">Навыки</a>
+        <a href="#project">Проект</a>
+        <a href="#education">Образование</a>
+        <a class="nav-cta" href="#contacts">Обо мне</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" aria-labelledby="hero-title" style="border-top:0">
+      <div class="container hero-grid">
+        <div>
+          <span class="eyebrow">Личное IT-портфолио</span>
+          <h1 id="hero-title"><span class="surname">Стенин</span><br>Вячеслав<br>Александрович</h1>
+          <p class="hero-role">Студент выпускного курса · Информатика и вычислительная техника</p>
+          <p class="hero-description">Изучаю разработку программного обеспечения, работу с данными и веб-технологии. Интересуюсь алгоритмами, интеграциями через API и созданием приложений.</p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#project">Посмотреть проект <span aria-hidden="true">↘</span></a>
+            <a class="button button-secondary" href="#skills">Мои навыки <span aria-hidden="true">↓</span></a>
+          </div>
+        </div>
+        <aside class="profile-card" aria-label="Краткая информация">
+          <div class="profile-top">
+            <div class="avatar" aria-label="Аватар с инициалами">ВС</div>
+            <span class="profile-chip">IT · Обучение</span>
+          </div>
+          <div class="profile-name">Вячеслав Стенин</div>
+          <div class="profile-subtitle">Будущий специалист в области IT</div>
+          <div class="profile-divider"></div>
+          <span class="micro-label">Основные направления</span>
+          <div class="tag-list">
+            <span class="tag">C#</span>
+            <span class="tag">HTTP</span>
+            <span class="tag">API</span>
+            <span class="tag">Алгоритмы</span>
+            <span class="tag">Работа с данными</span>
+          </div>
+          <div class="profile-divider"></div>
+          <span class="micro-label">Образование</span>
+          <div style="font-size:.92rem;font-weight:680">Уральский государственный экономический университет</div>
+          <div style="margin-top:5px;color:var(--muted);font-size:.83rem">Информатика и вычислительная техника</div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="skills" aria-labelledby="skills-title">
+      <div class="container">
+        <div class="section-head">
+          <div><span class="section-kicker">01 / Навыки</span><h2 id="skills-title">Инструменты и подходы</h2></div>
+          <p class="section-intro">Области, которые я изучаю и использую в учебных задачах. Список будет расширяться по мере практики.</p>
+        </div>
+        <div class="skills-grid">
+          <article class="skill-card"><span class="skill-index">SKILL / 01</span><h3>C#</h3><p>Изучение программирования и построения логики приложений.</p></article>
+          <article class="skill-card"><span class="skill-index">SKILL / 02</span><h3>HTTP</h3><p>Основы взаимодействия клиента и сервера в веб-среде.</p></article>
+          <article class="skill-card"><span class="skill-index">SKILL / 03</span><h3>Работа с API</h3><p>Изучение способов обмена данными между приложениями.</p></article>
+          <article class="skill-card"><span class="skill-index">SKILL / 04</span><h3>Работа с данными</h3><p>Структурирование, обработка и использование данных в задачах.</p></article>
+          <article class="skill-card"><span class="skill-index">SKILL / 05</span><h3>Алгоритмы</h3><p>Разбор последовательности действий для решения задач.</p></article>
+          <article class="skill-card"><span class="skill-index">SKILL / 06</span><h3>Моделирование процессов</h3><p>Описание и представление бизнес-процессов и их структуры.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="project" aria-labelledby="project-title">
+      <div class="container">
+        <div class="section-head">
+          <div><span class="section-kicker">02 / Учебный проект</span><h2 id="project-title">Практика в разработке</h2></div>
+          <p class="section-intro">Первый проект в портфолио — веб-приложение, посвящённое созданию тестов и организации тестирования.</p>
+        </div>
+        <div class="project-wrap">
+          <article class="project-main">
+            <span class="project-label">Учебный проект</span>
+            <h3>Веб-приложение для создания тестов и прохождения тестирования</h3>
+            <p>Цель проекта — разработать веб-приложение, в котором можно создавать тесты и затем проходить их. На этой странице указано только подтверждённое описание; подробности реализации будут добавлены после проверки текущей версии проекта.</p>
+            <div class="project-facts">
+              <div class="fact"><strong>Цель</strong><span>Создание и прохождение тестов</span></div>
+              <div class="fact"><strong>Формат</strong><span>Учебная разработка</span></div>
+              <div class="fact"><strong>Стек технологий</strong><span>Будет указан после уточнения</span></div>
+              <div class="fact"><strong>Материалы</strong><span>Ссылку и демонстрацию нужно добавить</span></div>
+            </div>
+            <details>
+              <summary>Подробнее о проекте</summary>
+              <div class="details-content">
+                <p><strong style="color:#dce8f4">Задача:</strong> разработать веб-приложение для создания тестовых заданий и последующего прохождения тестирования.</p>
+                <p><strong style="color:#dce8f4">Что добавить в портфолио:</strong> фактически реализованные функции, использованные технологии, скриншоты интерфейса и ссылку на репозиторий или отчёт.</p>
+                <p>Детали реализации не указаны, чтобы не приписывать проекту неподтверждённые возможности.</p>
+              </div>
+            </details>
+          </article>
+          <aside class="project-side">
+            <div class="side-card">
+              <span class="micro-label">О проекте</span>
+              <h3>От идеи к реализации</h3>
+              <p>Проект предназначен для практического применения знаний в разработке и организации процесса тестирования. По мере подготовки материалов здесь появятся примеры интерфейса и ссылка на код.</p>
+            </div>
+            <div class="side-card">
+              <span class="micro-label">Портфолио</span>
+              <h3>Материалы проекта</h3>
+              <p>Публичная ссылка на репозиторий, скриншоты и демонстрационные материалы пока не добавлены. Их следует разместить после подготовки и проверки.</p>
+              <div style="margin-top:18px"><a class="button button-secondary" href="#contacts">Информация об авторе <span aria-hidden="true">↗</span></a></div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section id="education" aria-labelledby="education-title">
+      <div class="container">
+        <div class="section-head">
+          <div><span class="section-kicker">03 / Образование</span><h2 id="education-title">Академическая база</h2></div>
+        </div>
+        <div class="education-grid">
+          <div class="edu-mark" aria-hidden="true">УрГЭУ</div>
+          <div>
+            <div class="edu-year">Выпускной курс</div>
+            <h3>Уральский государственный экономический университет</h3>
+            <p>Направление подготовки — «Информатика и вычислительная техника».</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contacts" aria-labelledby="contacts-title">
+      <div class="container">
+        <div class="contact-panel">
+          <div>
+            <span class="section-kicker">04 / Об авторе</span>
+            <h2 id="contacts-title">Продолжаю учиться и развивать практические навыки.</h2>
+            <p>Это учебное портфолио собрано для представления образования, навыков и проекта. Личные контактные данные на открытой странице не размещаются.</p>
+          </div>
+          <a class="button button-primary" href="#top">Наверх страницы <span aria-hidden="true">↑</span></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-row">
+      <span>© <span id="year">2026</span> Стенин Вячеслав Александрович</span>
+      <a class="back-top" href="#top">Вернуться к началу ↑</a>
+    </div>
+  </footer>
+  <script>
+    // Небольшое удобство: год обновляется автоматически.
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
